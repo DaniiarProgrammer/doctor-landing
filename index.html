@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Врач-косметолог Анна Соколова. Инъекционная и аппаратная косметология в Москве. 15 лет опыта.">
+  <meta property="og:title" content="Dr. Анна Соколова — Врач-косметолог в Москве">
+  <meta property="og:description" content="Инъекционная и аппаратная косметология. 15 лет опыта, 3000+ довольных пациентов.">
+  <meta property="og:type" content="website">
+  <title>Dr. Анна Соколова — Врач-косметолог в Москве</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'warm-brown': '#8b7355',
+            'sage': '#4a5d4e',
+            'cream': '#faf7f2',
+            'sand': '#f0ebe3',
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  
+  <style>
+    html { scroll-behavior: smooth; }
+    
+    /* Fade-in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .fade-in-delay-1 { animation-delay: 0.1s; }
+    .fade-in-delay-2 { animation-delay: 0.2s; }
+    .fade-in-delay-3 { animation-delay: 0.3s; }
+    
+    /* Initial state for fade-in elements */
+    .fade-in-init {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #faf7f2;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #8b7355;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7a6448;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-[#2c2416] antialiased">
+  
+  <!-- Navigation -->
+  <header id="navbar" class="fixed w-full top-0 left-0 z-50 transition-all duration-300">
+    <nav class="container mx-auto px-6 md:px-12 py-5">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#home" class="font-display text-xl md:text-2xl italic text-[#2c2416] hover:text-warm-brown transition-colors">
+          Dr. Анна Соколова
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#services" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Услуги</a>
+          <a href="#about" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Обо мне</a>
+          <a href="#reviews" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Отзывы</a>
+          <a href="#contact" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Контакты</a>
+          <a href="#booking" class="px-6 py-2.5 bg-warm-brown text-white rounded-full text-sm font-medium hover:bg-[#7a6448] transition-colors">
+            Записаться
+          </a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-[#2c2416] hover:text-warm-brown transition-colors" aria-label="Меню">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-amber-900/10">
+        <div class="flex flex-col space-y-4 pt-4">
+          <a href="#services" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Услуги</a>
+          <a href="#about" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Обо мне</a>
+          <a href="#reviews" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Отзывы</a>
+          <a href="#contact" class="text-sm font-medium text-[#7a6e5a] hover:text-warm-brown transition-colors">Контакты</a>
+          <a href="#booking" class="px-6 py-2.5 bg-warm-brown text-white rounded-full text-sm font-medium text-center hover:bg-[#7a6448] transition-colors">
+            Записаться
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-24 pb-16 overflow-hidden">
+      <!-- Background Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-cream via-white to-sand opacity-60"></div>
+      
+      <!-- Decorative SVG Lines -->
+      <svg class="absolute top-20 right-10 w-64 h-64 opacity-10" viewBox="0 0 200 200" fill="none">
+        <path d="M20 80 Q 50 20, 100 80 T 180 80" stroke="#8b7355" stroke-width="1" fill="none"/>
+        <path d="M20 120 Q 50 60, 100 120 T 180 120" stroke="#8b7355" stroke-width="1" fill="none"/>
+      </svg>
+      
+      <svg class="absolute bottom-20 left-10 w-48 h-48 opacity-10" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="80" stroke="#8b7355" stroke-width="1" fill="none"/>
+        <circle cx="100" cy="100" r="60" stroke="#8b7355" stroke-width="1" fill="none"/>
+      </svg>
+      
+      <div class="relative max-w-4xl mx-auto text-center">
+        <!-- Eyebrow -->
+        <p class="fade-in-init fade-in text-sm uppercase tracking-widest text-warm-brown mb-6">
+          Врач-косметолог · Дерматолог
+        </p>
+        
+        <!-- Main Heading -->
+        <h1 class="fade-in-init fade-in fade-in-delay-1 font-display text-5xl md:text-6xl lg:text-7xl text-[#2c2416] mb-6 leading-tight">
+          Красота как искусство медицины
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="fade-in-init fade-in fade-in-delay-2 text-lg md:text-xl text-[#7a6e5a] mb-10 max-w-2xl mx-auto leading-relaxed">
+          15 лет опыта. 3000+ довольных пациентов. Индивидуальный подход к каждому лицу.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="fade-in-init fade-in fade-in-delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <a href="#booking" class="px-8 py-4 bg-warm-brown text-white rounded-full text-base font-medium hover:bg-[#7a6448] transition-all hover:shadow-lg hover:-translate-y-0.5">
+            Записаться на консультацию
+          </a>
+          <a href="#services" class="px-8 py-4 border-2 border-warm-brown text-warm-brown rounded-full text-base font-medium hover:bg-warm-brown hover:text-white transition-all">
+            Посмотреть работы
+          </a>
+        </div>
+        
+        <!-- Stats Bar -->
+        <div class="fade-in-init fade-in fade-in-delay-3 grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-amber-900/10">
+          <div class="text-center">
+            <div class="font-display text-3xl md:text-4xl text-[#2c2416] mb-1">15</div>
+            <div class="text-sm text-[#7a6e5a]">лет опыта</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl md:text-4xl text-[#2c2416] mb-1">3000+</div>
+            <div class="text-sm text-[#7a6e5a]">пациентов</div>
+          </div>
+          <div class="text-center">
+            <div class="font-display text-3xl md:text-4xl text-[#2c2416] mb-1">127</div>
+            <div class="text-sm text-[#7a6e5a]">курсов повышения квалификации</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 md:px-12 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in-init">
+          <h2 class="font-display text-4xl md:text-5xl text-[#2c2416] mb-4">
+            Основные направления
+          </h2>
+          <p class="text-lg text-[#7a6e5a] max-w-2xl mx-auto">
+            Инъекционная и аппаратная косметология на уровне мировых стандартов
+          </p>
+        </div>
+        
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service 1: Биоревитализация -->
+          <div class="fade-in-init bg-white border border-amber-900/10 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            
+            <h3 class="font-display text-2xl text-[#2c2416] mb-3">
+              Биоревитализация и мезотерапия
+            </h3>
+            
+            <p class="text-[#7a6e5a] mb-6 leading-relaxed">
+              Восстановление гидробаланса, сияние кожи, anti-age терапия. Препараты: Juvederm, Restylane, NCTF 135.
+            </p>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-amber-900/10">
+              <div>
+                <div class="text-sm text-[#7a6e5a] mb-1">от</div>
+                <div class="font-display text-2xl text-warm-brown">8 000 ₽</div>
+              </div>
+              <div class="text-sm text-[#7a6e5a]">40-60 мин</div>
+            </div>
+          </div>
+          
+          <!-- Service 2: Ботулинотерапия -->
+          <div class="fade-in-init bg-white border border-amber-900/10 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            
+            <h3 class="font-display text-2xl text-[#2c2416] mb-3">
+              Ботулинотерапия
+            </h3>
+            
+            <p class="text-[#7a6e5a] mb-6 leading-relaxed">
+              Коррекция мимических морщин, лечение гипергидроза. Ботокс, Диспорт, Ксеомин.
+            </p>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-amber-900/10">
+              <div>
+                <div class="text-sm text-[#7a6e5a] mb-1">от</div>
+                <div class="font-display text-2xl text-warm-brown">12 000 ₽</div>
+              </div>
+              <div class="text-sm text-[#7a6e5a]">20-30 мин</div>
+            </div>
+          </div>
+          
+          <!-- Service 3: Контурная пластика -->
+          <div class="fade-in-init bg-white border border-amber-900/10 rounded-2xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-warm-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            
+            <h3 class="font-display text-2xl text-[#2c2416] mb-3">
+              Контурная пластика
+            </h3>
+            
+            <p class="text-[#7a6e5a] mb-6 leading-relaxed">
+              Восполнение объёмов, коррекция овала, augmentation губ. Филлеры премиум-класса.
+            </p>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-amber-900/10">
+              <div>
+                <div class="text-sm text-[#7a6e5a] mb-1">от</div>
+                <div class="font-display text-2xl text-warm-brown">18 000 ₽</div>
+              </div>
+              <div class="text-sm text-[#7a6e5a]">30-60 мин</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-cream">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Photo Placeholder -->
+          <div class="fade-in-init">
+            <div class="relative aspect-square max-w-md mx-auto">
+              <!-- Gradient Background -->
+              <div class="absolute inset-0 bg-gradient-to-br from-sand via-cream to-[#e8dcc4] rounded-2xl border-2 border-warm-brown/20"></div>
+              
+              <!-- Initials -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-display text-8xl md:text-9xl text-warm-brown/30">АС</span>
+              </div>
+              
+              <!-- Decorative Frame -->
+              <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-warm-brown"></div>
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-warm-brown"></div>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class="fade-in-init">
+            <p class="text-sm uppercase tracking-widest text-warm-brown mb-4">
+              Обо мне
+            </p>
+            
+            <h2 class="font-display text-4xl md:text-5xl text-[#2c2416] mb-2">
+              Анна Сергеевна Соколова
+            </h2>
+            
+            <p class="text-lg text-[#7a6e5a] mb-8">
+              Врач-косметолог, дерматовенеролог
+            </p>
+            
+            <!-- Education -->
+            <div class="mb-8">
+              <h3 class="font-semibold text-[#2c2416] mb-3">Образование:</h3>
+              <ul class="space-y-2 text-[#7a6e5a]">
+                <li>• Первый МГМУ им. И.М. Сеченова, 2009</li>
+                <li>• Ординатура по дерматовенерологии, 2011</li>
+                <li>• Профессиональная переподготовка по косметологии, 2013</li>
+              </ul>
+            </div>
+            
+            <!-- Credentials -->
+            <div class="mb-8">
+              <h3 class="font-semibold text-[#2c2416] mb-3">Регалии:</h3>
+              <ul class="space-y-2 text-[#7a6e5a]">
+                <li class="flex items-start">
+                  <span class="text-warm-brown mr-2">✓</span>
+                  <span>Член Общества специалистов эстетической медицины</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-warm-brown mr-2">✓</span>
+                  <span>Сертифицированный тренер Allergan и Galderma</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-warm-brown mr-2">✓</span>
+                  <span>Спикер международных конгрессов по косметологии</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Philosophy -->
+            <blockquote class="font-display text-xl italic text-[#2c2416] border-l-4 border-warm-brown pl-6 py-2">
+              "Я не создаю новую внешность — я раскрываю естественную красоту, данную природой."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 px-6 md:px-12 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in-init">
+          <h2 class="font-display text-4xl md:text-5xl text-[#2c2416] mb-4">
+            Что говорят пациенты
+          </h2>
+        </div>
+        
+        <!-- Reviews Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Review 1 -->
+          <div class="fade-in-init bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow relative overflow-hidden">
+            <!-- Decorative Quote -->
+            <div class="absolute top-4 right-4 font-display text-6xl text-amber-900/10 select-none">"</div>
+            
+            <!-- Avatar -->
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-cream rounded-full flex items-center justify-center mr-4">
+                <span class="font-display text-lg text-warm-brown">МК</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[#2c2416]">Мария К.</div>
+                <div class="text-sm text-[#7a6e5a]">34 года</div>
+              </div>
+            </div>
+            
+            <!-- Service Badge -->
+            <div class="inline-block px-3 py-1 bg-cream text-warm-brown text-sm rounded-full mb-4">
+              Биоревитализация
+            </div>
+            
+            <!-- Stars -->
+            <div class="flex mb-4">
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            </div>
+            
+            <!-- Review Text -->
+            <p class="text-[#7a6e5a] leading-relaxed">
+              Наблюдаюсь у Анны Сергеевны уже 3 года. Профессионал с большой буквы, всегда честна, никогда не навязывает лишнего. Кожа в 34 выглядит лучше, чем в 25!
+            </p>
+          </div>
+          
+          <!-- Review 2 -->
+          <div class="fade-in-init bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow relative overflow-hidden">
+            <div class="absolute top-4 right-4 font-display text-6xl text-amber-900/10 select-none">"</div>
+            
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-cream rounded-full flex items-center justify-center mr-4">
+                <span class="font-display text-lg text-warm-brown">ЕВ</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[#2c2416]">Елена В.</div>
+                <div class="text-sm text-[#7a6e5a]">41 год</div>
+              </div>
+            </div>
+            
+            <div class="inline-block px-3 py-1 bg-cream text-warm-brown text-sm rounded-full mb-4">
+              Ботулинотерапия
+            </div>
+            
+            <div class="flex mb-4">
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            </div>
+            
+            <p class="text-[#7a6e5a] leading-relaxed">
+              Боялась ботокса 5 лет. Анна Сергеевна развеяла все страхи, подробно объяснила, показала сертификаты. Результат — естественный, никто не догадался. Мимика сохранена.
+            </p>
+          </div>
+          
+          <!-- Review 3 -->
+          <div class="fade-in-init bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-shadow relative overflow-hidden">
+            <div class="absolute top-4 right-4 font-display text-6xl text-amber-900/10 select-none">"</div>
+            
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-cream rounded-full flex items-center justify-center mr-4">
+                <span class="font-display text-lg text-warm-brown">ОП</span>
+              </div>
+              <div>
+                <div class="font-semibold text-[#2c2416]">Ольга П.</div>
+                <div class="text-sm text-[#7a6e5a]">29 лет</div>
+              </div>
+            </div>
+            
+            <div class="inline-block px-3 py-1 bg-cream text-warm-brown text-sm rounded-full mb-4">
+              Контурная пластика губ
+            </div>
+            
+            <div class="flex mb-4">
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            </div>
+            
+            <p class="text-[#7a6e5a] leading-relaxed">
+              Увеличивала губы впервые. Результат превзошёл ожидания — натуральный объём, идеальная форма. Доктор с золотыми руками. Рекомендую всем подругам!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-24 px-6 md:px-12 bg-cream">
+      <div class="container mx-auto max-w-4xl">
+        <!-- Section Header -->
+        <div class="text-center mb-12 fade-in-init">
+          <h2 class="font-display text-4xl md:text-5xl text-[#2c2416] mb-4">
+            Запишитесь на консультацию
+          </h2>
+          <p class="text-lg text-[#7a6e5a]">
+            Первая консультация — 30 минут. Обсудим ваши цели и составим план процедур.
+          </p>
+        </div>
+        
+        <!-- Form -->
+        <div id="booking-form-container" class="fade-in-init bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+          <!-- Замени YOUR_FORM_ID на свой endpoint с formspree.io -->
+          <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Left Column -->
+              <div class="space-y-6">
+                <!-- Name -->
+                <div>
+                  <label for="name" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Имя <span class="text-red-500">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    placeholder="Ваше имя"
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                </div>
+                
+                <!-- Phone -->
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Телефон <span class="text-red-500">*</span>
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    required
+                    placeholder="+7 (___) ___-__-__"
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                </div>
+                
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Email
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    placeholder="email@example.com"
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                </div>
+              </div>
+              
+              <!-- Right Column -->
+              <div class="space-y-6">
+                <!-- Service -->
+                <div>
+                  <label for="service" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Услуга <span class="text-red-500">*</span>
+                  </label>
+                  <select 
+                    id="service" 
+                    name="service" 
+                    required
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                    <option value="">Выберите услугу</option>
+                    <option value="consultation">Консультация</option>
+                    <option value="biorevitalization">Биоревитализация</option>
+                    <option value="botox">Ботулинотерапия</option>
+                    <option value="fillers">Контурная пластика</option>
+                    <option value="other">Другое</option>
+                  </select>
+                </div>
+                
+                <!-- Date -->
+                <div>
+                  <label for="date" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Удобная дата <span class="text-red-500">*</span>
+                  </label>
+                  <input 
+                    type="date" 
+                    id="date" 
+                    name="date" 
+                    required
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                </div>
+                
+                <!-- Time -->
+                <div>
+                  <label for="time" class="block text-sm font-medium text-[#2c2416] mb-2">
+                    Удобное время
+                  </label>
+                  <select 
+                    id="time" 
+                    name="time"
+                    class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all"
+                  >
+                    <option value="">Выберите время</option>
+                    <option value="morning">Утро (10:00-13:00)</option>
+                    <option value="afternoon">День (13:00-17:00)</option>
+                    <option value="evening">Вечер (17:00-20:00)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Comment -->
+            <div>
+              <label for="comment" class="block text-sm font-medium text-[#2c2416] mb-2">
+                Комментарий
+              </label>
+              <textarea 
+                id="comment" 
+                name="comment" 
+                rows="4"
+                placeholder="Расскажите о ваших пожеланиях"
+                class="w-full px-4 py-3 border border-amber-900/20 rounded-lg focus:ring-2 focus:ring-warm-brown focus:border-transparent transition-all resize-none"
+              ></textarea>
+            </div>
+            
+            <!-- Consent Checkbox -->
+            <div class="flex items-start">
+              <input 
+                type="checkbox" 
+                id="consent" 
+                name="consent" 
+                required
+                class="mt-1 w-4 h-4 text-warm-brown border-amber-900/20 rounded focus:ring-warm-brown"
+              >
+              <label for="consent" class="ml-3 text-sm text-[#7a6e5a]">
+                Согласен на обработку персональных данных <span class="text-red-500">*</span>
+              </label>
+            </div>
+            
+            <!-- Submit Button -->
+            <button 
+              type="submit" 
+              class="w-full px-8 py-4 bg-warm-brown text-white rounded-full text-base font-medium uppercase tracking-wide hover:bg-[#7a6448] transition-all hover:shadow-lg"
+            >
+              Записаться
+            </button>
+          </form>
+          
+          <!-- Success Message (hidden by default) -->
+          <div id="success-message" class="hidden text-center py-12">
+            <div class="w-16 h-16 bg-sage/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl text-[#2c2416] mb-4">Спасибо!</h3>
+            <p class="text-[#7a6e5a] mb-6">
+              Я свяжусь с вами в течение 2 часов для подтверждения записи.
+            </p>
+            <button 
+              onclick="resetForm()" 
+              class="px-6 py-3 border-2 border-warm-brown text-warm-brown rounded-full text-sm font-medium hover:bg-warm-brown hover:text-white transition-all"
+            >
+              Отправить ещё одну заявку
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-[#2c2416] text-white py-16 px-6 md:px-12">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid md:grid-cols-3 gap-12 mb-12">
+          <!-- Contacts -->
+          <div>
+            <h3 class="font-display text-2xl mb-6">Контакты</h3>
+            <div class="space-y-3 text-white/80">
+              <p>г. Москва, ул. Тверская, д. 18, стр. 1</p>
+              <p>Метро Тверская (3 мин пешком)</p>
+              <p>
+                <a href="tel:+74951234567" class="hover:text-white transition-colors">
+                  +7 (495) 123-45-67
+                </a>
+              </p>
+              <p>
+                <a href="mailto:dr.sokolova@clinic.ru" class="hover:text-white transition-colors">
+                  dr.sokolova@clinic.ru
+                </a>
+              </p>
+            </div>
+          </div>
+          
+          <!-- Working Hours -->
+          <div>
+            <h3 class="font-display text-2xl mb-6">Часы работы</h3>
+            <div class="space-y-3 text-white/80">
+              <p>ПН-ПТ: 10:00 — 21:00</p>
+              <p>СБ: 11:00 — 19:00</p>
+              <p>ВС: выходной</p>
+            </div>
+          </div>
+          
+          <!-- Social -->
+          <div>
+            <h3 class="font-display text-2xl mb-6">Соцсети</h3>
+            <div class="flex space-x-4 mb-6">
+              <!-- Instagram -->
+              <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-brown transition-colors" aria-label="Instagram">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              
+              <!-- Telegram -->
+              <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-brown transition-colors" aria-label="Telegram">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+              </a>
+              
+              <!-- VK -->
+              <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm-brown transition-colors" aria-label="VK">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+                </svg>
+              </a>
+            </div>
+            
+            <p class="text-xs text-white/60">
+              Имеются противопоказания. Необходима консультация специалиста.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
+          <p>© 2024 Dr. Анна Соколова. Все права защищены.</p>
+          <a href="#" class="hover:text-white transition-colors mt-4 md:mt-0">
+            Политика конфиденциальности
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-lg', 'shadow-amber-900/5');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-lg', 'shadow-amber-900/5');
+      }
+    });
+    
+    // Fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in-init').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Phone mask
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length > 0) {
+        if (value[0] === '7' || value[0] === '8') {
+          value = value.substring(1);
+        }
+        
+        let formatted = '+7';
+        if (value.length > 0) {
+          formatted += ' (' + value.substring(0, 3);
+        }
+        if (value.length >= 3) {
+          formatted += ') ' + value.substring(3, 6);
+        }
+        if (value.length >= 6) {
+          formatted += '-' + value.substring(6, 8);
+        }
+        if (value.length >= 8) {
+          formatted += '-' + value.substring(8, 10);
+        }
+        
+        e.target.value = formatted;
+      }
+    });
+    
+    // Date picker min date
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+    
+    // Form submission
+    const form = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+        } else {
+          alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз.');
+        }
+      } catch (error) {
+        alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз.');
+      }
+    });
+    
+    // Reset form
+    function resetForm() {
+      form.reset();
+      form.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
