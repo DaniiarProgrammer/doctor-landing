@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Врач-косметолог Анна Соколова. Инъекционная и аппаратная косметология в Москве. 15 лет опыта.">
+    <meta property="og:title" content="Dr. Анна Соколова — Врач-косметолог в Москве">
+    <meta property="og:description" content="Инъекционная и аппаратная косметология на уровне мировых стандартов. 15 лет опыта, 3000+ довольных пациентов.">
+    <meta property="og:type" content="website">
     <title>Dr. Анна Соколова — Врач-косметолог в Москве</title>
     
     <!-- Tailwind CSS -->
@@ -102,6 +105,16 @@
             vertical-align: middle;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Honeypot field - скрыт от пользователей, виден ботам */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="font-sans text-[#2c2416] antialiased">
@@ -227,7 +240,9 @@
             <div class="container mx-auto px-6 md:px-12">
                 <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="fade-in">
-                        <img src="https://image.qwenlm.ai/public_source/39054103-11c3-4804-8d68-bfe11eb5372e/1787e442b-15d0-46e1-bb6c-e970e58ee191.png" alt="Dr. Анна Соколова" class="rounded-2xl shadow-xl shadow-amber-900/10 w-full">
+                        <div class="aspect-square bg-gradient-to-br from-sand via-cream to-sand rounded-2xl border-2 border-warm-brown flex items-center justify-center shadow-xl shadow-amber-900/10">
+                            <span class="font-display text-8xl md:text-9xl font-medium text-warm-brown opacity-30">АС</span>
+                        </div>
                     </div>
                     <div class="fade-in">
                         <p class="text-sm tracking-widest text-warm-brown uppercase mb-4">Обо мне</p>
@@ -358,6 +373,12 @@
                         class="space-y-6"
                     >
                         <input type="hidden" name="_subject" value="Новая запись на консультацию — Dr. Соколова">
+                        
+                        <!-- Honeypot field для защиты от спама -->
+                        <div class="hp-field" aria-hidden="true">
+                            <label for="website">Не заполняйте это поле</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
                         
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-6">
@@ -552,6 +573,7 @@
     </main>
 
     <script>
+        // ===== Mobile menu =====
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
@@ -559,11 +581,13 @@
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
+        // ===== Navbar scroll =====
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
         });
 
+        // ===== Fade-in on scroll =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -574,6 +598,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+        // ===== Phone mask =====
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let value = e.target.value.replace(/\D/g, '');
@@ -587,17 +612,22 @@
             e.target.value = formatted;
         });
 
+        // ===== Date picker min = today =====
         const dateInput = document.getElementById('date');
         dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
 
+        // ===== Client-side validation =====
         function validateClientSide(form) {
             const name = form.querySelector('#name').value.trim();
             const phone = form.querySelector('#phone').value.replace(/\D/g, '');
             const service = form.querySelector('#service').value;
             const consent = form.querySelector('#consent').checked;
             
-            form.querySelectorAll('.client-error').forEach(el => el.remove());
             form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+            form.querySelectorAll('[data-fs-error]').forEach(el => {
+                el.textContent = '';
+                el.removeAttribute('data-fs-active');
+            });
             
             let valid = true;
             
@@ -612,14 +642,15 @@
                 valid = false;
             }
             
-            if (name.length < 2) showError('name', 'Введите имя');
-            if (phone.length !== 11) showError('phone', 'Введите корректный телефон');
+            if (name.length < 2) showError('name', 'Введите имя (минимум 2 символа)');
+            if (phone.length !== 11) showError('phone', 'Введите корректный телефон (11 цифр)');
             if (!service) showError('service', 'Выберите услугу');
-            if (!consent) showError('consent', 'Необходимо согласие');
+            if (!consent) showError('consent', 'Необходимо согласие на обработку данных');
             
             return valid;
         }
 
+        // ===== Form submission with validation =====
         const bookingForm = document.getElementById('booking-form');
 
         bookingForm.addEventListener('submit', function(e) {
@@ -628,8 +659,12 @@
                 e.preventDefault();
                 return false;
             }
+            // Добавляем loading state
+            const btn = this.querySelector('[data-fs-submit-btn]');
+            if (btn) btn.classList.add('btn-submitting');
         });
 
+        // ===== Formspree initialization =====
         window.formspree = window.formspree || function () {
             (formspree.q = formspree.q || []).push(arguments);
         };
@@ -671,6 +706,7 @@
             },
         });
 
+        // ===== Reset form button =====
         document.getElementById('reset-form-btn').addEventListener('click', () => {
             const form = document.getElementById('booking-form');
             const successMsg = document.getElementById('success-message');
